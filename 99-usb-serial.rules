@@ -1,0 +1,18 @@
+# This file defines udev rules for some USB serial adapters. It
+# addresses the issue that the ttyUSB devices are numbered
+# randomly, and their numbering can vary between server reboots.  These
+# rules create persistent symlinks for each serial port.
+
+# Copyright (c) 2016 Stanislav Sinyagin <ssinyagin@k-open.com>.
+
+# This content is published under Creative Commons Attribution 4.0
+# International (CC BY 4.0) lincense.
+
+# Source repository: https://github.com/ssinyagin/wwan_udev_rules
+
+
+# FTDI
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", SYMLINK+="ttyFTDI%s{devpath}"
+
+# Prolific Technology Inc.
+SUBSYSTEM=="tty", ATTRS{idVendor}=="067b", ATTRS{idProduct}=="2303", SYMLINK+="ttyPRLC%s{devpath}"

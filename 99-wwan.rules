@@ -1,0 +1,30 @@
+# This file defines udev rules for some 3G/UMTS/LTE modems.  It
+# addresses the issue that the ttyUSB devices are numbered randomly, and
+# their numbering can vary between server reboots.  These rules create
+# persistent symlinks which can be reliably used in WWAN interface
+# startup scripts.
+
+# These rules assume that there is only one WWAN modem in the system. In
+# order to address multiple WWAN cards, the rules need to be more
+# specific and associate with serial numbers of the modems.
+
+# Copyright (c) 2016 Stanislav Sinyagin <ssinyagin@k-open.com>.
+
+# This content is published under Creative Commons Attribution 4.0
+# International (CC BY 4.0) lincense.
+
+# Source repository: https://github.com/ssinyagin/wwan_udev_rules
+
+# Huawei ME909s-120 LTE modem
+SUBSYSTEM=="tty", ATTRS{idVendor}=="12d1", ATTRS{idProduct}=="15c1", SYMLINK+="ttyWWAN%E{ID_USB_INTERFACE_NUM}"
+SUBSYSTEM=="net", ATTRS{idVendor}=="12d1", ATTRS{idProduct}=="15c1", NAME="lte0"
+
+# Qualcomm Gobi2000
+SUBSYSTEM=="tty", ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="251d", SYMLINK+="ttyWWAN%E{ID_USB_INTERFACE_NUM}"
+
+# Sierra Wireless MC8775
+SUBSYSTEM=="tty", ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="1e1d", SYMLINK+="ttyWWAN%E{.ID_PORT}"
+
+# Novatel Wireless, Inc. Expedite E371
+SUBSYSTEM=="tty", ATTRS{idVendor}=="413c", ATTRS{idProduct}=="819b", SYMLINK+="ttyWWAN%E{ID_USB_INTERFACE_NUM}"
+
