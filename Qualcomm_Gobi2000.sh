@@ -25,7 +25,7 @@ Init2 = ATQ0 V1 E1 S0=0 &C1 &D2 +FCLASS=0
 Init3 = AT+CGDCONT=1,"IP","internet"
 Phone = *99#
 New PPPD = yes
-Modem = /dev/ttyGOBI02
+Modem = /dev/ttyWWAN02
 Dial Command = ATDT
 Baud = 9600
 Username = ''
