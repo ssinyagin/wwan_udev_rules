@@ -28,3 +28,7 @@ SUBSYSTEM=="tty", ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="1e1d", SYMLINK+="t
 # Novatel Wireless, Inc. Expedite E371
 SUBSYSTEM=="tty", ATTRS{idVendor}=="413c", ATTRS{idProduct}=="819b", SYMLINK+="ttyWWAN%E{ID_USB_INTERFACE_NUM}"
 
+# SIMCom SIM7100
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1e0e", ATTRS{idProduct}=="9001", SYMLINK+="ttyWWAN%E{ID_USB_INTERFACE_NUM}"
+SUBSYSTEM=="net", ATTRS{idVendor}=="1e0e", ATTRS{idProduct}=="9001", NAME="lte0"
+
