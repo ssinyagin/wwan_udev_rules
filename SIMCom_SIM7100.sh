@@ -19,18 +19,19 @@ ABORT BUSY
 ABORT 'NO CARRIER'
 ABORT ERROR
 TIMEOUT 10
-'' ATZ
-OK 'AT+CFUN=1'
-OK 'AT+CMEE=1'
+'' 'AT+CFUN=1'
+OK 'AT+CMEE=0'
 OK 'AT+CGDCONT=1,"IP","internet"'
-OK 'AT\$QCRMCALL=1,1'
-\$QCRMCALL:
+OK '\dAT\$QCRMCALL=1,1'
+OK
 EOT
 
 cat >/etc/chatscripts/gsm_off.SIM7100 <<'EOT'
 ABORT ERROR
 TIMEOUT 5
-'' AT+CFUN=0 OK
+'' 'AT\$QCRMCALL=0,1'
+OK AT+CFUN=0
+OK
 EOT
 
 cat >/etc/network/interfaces.d/lte0 <<'EOT'
