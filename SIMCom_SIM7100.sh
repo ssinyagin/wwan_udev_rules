@@ -9,7 +9,7 @@
 # Source repository: https://github.com/ssinyagin/wwan_udev_rules
 
 
-apt-get install -y ppp wvdial
+apt-get install -y ppp
 
 wget -O /etc/udev/rules.d/99-wwan.rules \
   https://raw.githubusercontent.com/ssinyagin/wwan_udev_rules/master/99-wwan.rules
