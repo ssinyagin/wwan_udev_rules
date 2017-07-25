@@ -19,6 +19,10 @@
 SUBSYSTEM=="tty", ATTRS{idVendor}=="12d1", ATTRS{idProduct}=="15c1", SYMLINK+="ttyWWAN%E{ID_USB_INTERFACE_NUM}"
 SUBSYSTEM=="net", ATTRS{idVendor}=="12d1", ATTRS{idProduct}=="15c1", NAME="lte0"
 
+# Huawei MU709s-2 UMTS modem
+SUBSYSTEM=="tty", ATTRS{idVendor}=="12d1", ATTRS{idProduct}=="1c25", SYMLINK+="ttyWWAN%E{ID_USB_INTERFACE_NUM}"
+SUBSYSTEM=="net", ATTRS{idVendor}=="12d1", ATTRS{idProduct}=="1c25", NAME="umts0"
+
 # Qualcomm Gobi2000
 SUBSYSTEM=="tty", ATTRS{idVendor}=="03f0", ATTRS{idProduct}=="251d", SYMLINK+="ttyWWAN%E{ID_USB_INTERFACE_NUM}"
 
