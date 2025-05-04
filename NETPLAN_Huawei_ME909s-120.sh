@@ -36,6 +36,7 @@ mkdir -p /etc/networkd-dispatcher/configuring.d/
 cat >/etc/networkd-dispatcher/configuring.d/lte0_configuring <<'EOT'
 #!/bin/sh
 if [ x$IFACE = 'xlte0' ]; then
+  sleep 5
   /usr/sbin/chat -v -f /etc/chatscripts/sunrise.HUAWEI >/dev/ttyWWAN02 </dev/ttyWWAN02
 fi
 EOT
